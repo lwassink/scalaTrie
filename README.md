@@ -4,7 +4,7 @@ A functional implementation of the Trie data structure in Scala.
 
 ## API
 
-The `Trie` class has a symbol-table interface inspired by [this](http://algs4.cs.princeton.edu/52trie/TST.java.html) Java implementation due to Sedgwick and Wayne.
+The `Trie` class has a symbol-table interface inspired by [this](http://algs4.cs.princeton.edu/52trie/TST.java.html) Java implementation due to Sedgewick and Wayne.
 The public methods are
 ```
   Trie[Val]#put(key: String, value: Val): Unit
