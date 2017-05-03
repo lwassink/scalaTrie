@@ -10,8 +10,13 @@ object Trie {
     def get(key: String): Option[Val] = store.get(key).contents
     def keysWithPrefix(pre: String): Stream[String] = store.keysWithPrefix(pre)
     def keys: Stream[String] = store.keysWithPrefix("")
+    def count: Int = store.countWithPrefix("")
+    def countWithPrefix(pre: String): Int = store.countWithPrefix(pre)
 
     private class Node(kids: Map[Char, Node], val contents: Option[Val]) {
+      val count: Int =
+        (if (contents.isEmpty) 0 else 1) + kids.values.foldLeft(0)((acc, node) => acc + node.count)
+
       def children: Char => Node = kids withDefaultValue new Node(Map(), None)
 
       def put(key: String, value: Val, pos: Int): Node =
@@ -40,6 +45,9 @@ object Trie {
       }
 
       def keysWithPrefix(prefix: String): Stream[String] = get(prefix).traverse(toStream, prefix)
+
+      def countWithPrefix(pre: String): Int = get(pre).count
     }
   }
 }
+ 

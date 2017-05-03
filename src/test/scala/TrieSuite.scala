@@ -74,5 +74,17 @@ class TrieSuite extends FunSpec {
         assert(populatedTrie.count == 5)
       }
     }
+
+    describe("#countWithPrefix") {
+      it("counts zero if the prefix isn't contained in the Trie") {
+        assert(populatedTrie.countWithPrefix("x") == 0)
+      }
+
+      it("counts the number of keys starting with the prefix") {
+        assert(populatedTrie.countWithPrefix("d") == 2)
+        assert(populatedTrie.countWithPrefix("car") == 2)
+        assert(populatedTrie.countWithPrefix("c") == 3)
+      }
+    }
   }
 }
