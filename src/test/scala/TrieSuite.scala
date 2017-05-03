@@ -64,5 +64,15 @@ class TrieSuite extends FunSpec {
         assert(populatedTrie.keysWithPrefix("x").isEmpty)
       }
     }
+
+    describe("#count") {
+      it("returns zero for an empty Trie") {
+        assert((new Trie[Int]).count == 0)
+      }
+
+      it("counts the number of keys in a Trie") {
+        assert(populatedTrie.count == 5)
+      }
+    }
   }
 }
