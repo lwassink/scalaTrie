@@ -11,6 +11,8 @@ The public methods are
   Trie[Val]#get(key: String): Option[Val]
   Trie[Val]#keys: Stream[String]
   Trie[Val]#keysWithPrefix(pre: String): Stream[String]
+  Trie[Val]#count: Int
+  Trie[Val]#countWithPrefix(pre: String): Int
 ```
 Note in particular that values are returned as options, so `get('x')` would return `None` if `x` was not in the Trie.
 Also, the iterators `keys` and `keysWithPrefix` both returns streams of strings.
