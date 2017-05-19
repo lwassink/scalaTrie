@@ -23,9 +23,10 @@ They will return only the keys corresponding to actual values, and they will ret
 Internally `Trie` uses a class `Node`.
 This class is purely functional and is never mutated.
 My main goal for this project was to write a functional implementation of the Trie data structure in idiomatic Scala.
-While it could be made more efficient, I feel that `Node` achieves this goal.
+You can see the code [here](src/main/scala/trie/Trie.scala)
 
 ## Testing
 
 This project includes tests written in scalatest.
 I chose to use `FunSpec` because my previous testing experience was with `RSpec` in Ruby.
+The tests are [here](src/test/scala/TrieSuite.scala).
